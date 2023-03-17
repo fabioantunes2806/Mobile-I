@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Alinha os filhos em uma única direção vertical ou horizontal (nesse caso, vertical) !-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!-- Adição de texto !-->
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="match_parent"
+        android:layout_height="94dp"
+        android:background="#3BFFF8"
+        android:text="AGENDA"
+        android:textAlignment="center"
+        android:textColor="@color/cardview_dark_background"
+        android:textColorHighlight="@color/purple_700"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:typeface="sans"/>
+
+    <!-- Adição de imagem !-->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="466dp"
+        android:layout_gravity="center|center_horizontal|center_vertical"
+        android:background="@color/design_default_color_primary_variant"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
+
+    <!-- Criação do botão !-->
+    <Button
+        android:id="@+id/cadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/design_default_color_secondary"
+        android:text="Cadastro" />
+
+</LinearLayout>
