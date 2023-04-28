@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".Missao">
+
+    <TextView
+        android:id="@+id/missao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Missão"
+        android:textAlignment="center"
+        android:textColor="#f00"
+        android:textSize="40sp"
+        android:textStyle="bold"/>
+
+    <!--<ImageView
+        android:id="@+id/img_medo"
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        app:srcCompat="@drawable/medo"
+        /> -->
+
+    <EditText
+        android:id="@+id/txtMissao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Missão"/>
+
+    <TextView
+        android:id="@+id/txtNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nome do agente: "
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/edtNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"/>
+
+    <TextView
+        android:id="@+id/txtPtt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Patente do agente: "
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/edtPtt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"/>
+
+    <TextView
+        android:id="@+id/txtLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Local: "
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/edtLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"/>
+
+    <TextView
+        android:id="@+id/txtOrg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Organização: "
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/edtOrg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnLimpar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Limpar"/>
+
+        <Button
+            android:id="@+id/btnSalvar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Salvar"/>
+
+        <Button
+            android:id="@+id/btnExcluir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Excluir"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Missao">
+
+        <ListView
+            android:id="@+id/ListViewPessoa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</LinearLayout>
