@@ -4,53 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1EFF17"
-    android:backgroundTint="#67DF4B"
     tools:context=".MainActivity">
-
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
-        <!--  tools:layout_editor_absoluteX="0dp"
-          tools:layout_editor_absoluteY="0dp">
-                                                  !-->
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text1"
-            android:layout_width="wrap_content"
+            android:id="@+id/txNomeProjeto"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="AGENDA"
+            android:text="Agenda"
             android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="80dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="49dp"
-            tools:layout_editor_absoluteY="16dp" />
+            android:textSize="75sp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="1dp"
+            android:textColor="#20B2AA"/>
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="337dp"
-            android:layout_height="414dp"
-            app:srcCompat="@drawable/zap"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="37dp"
-            tools:layout_editor_absoluteY="158dp" />
+            android:id="@+id/img1"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:srcCompat="@drawable/agenda2"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="68dp" />
 
         <Button
-            android:id="@+id/cadastro"
-            android:layout_width="290dp"
-            android:layout_height="142dp"
-            android:background="#49E325"
-            android:text="CADASTRAR"
-            android:textColor="#000000"
-            android:textSize="30dp"
-            app:backgroundTint="#ff0000"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="60dp"
-            tools:layout_editor_absoluteY="572dp" />
+            android:id="@+id/btnCadastrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#228B22"
+            android:text="Cadastrar"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="614dp" />
 
     </LinearLayout>
 

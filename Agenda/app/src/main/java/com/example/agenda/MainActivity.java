@@ -16,22 +16,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btInicio = findViewById(R.id.cadastro);
+        btInicio = findViewById(R.id.btnCadastrar);
         btInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 abreSegundaTela();
 
-
             }
         });
+
     }
 
     private void abreSegundaTela(){
-
         Intent it = new Intent(this, Cadastro.class);
-        startActivityForResult(it, 1);
+
+        startActivityForResult(it,1);
 
     }
 }
