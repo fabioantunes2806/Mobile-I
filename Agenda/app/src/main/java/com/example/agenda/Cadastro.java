@@ -61,8 +61,7 @@ public class Cadastro extends AppCompatActivity {
 
         cNome.requestFocus();
 
-        viewPessoa.setOnItemClickListener( new
-      AdapterView.OnItemClickListener() {
+        viewPessoa.setOnItemClickListener( new AdapterView.OnItemClickListener() {
               @Override
               public void onItemClick(AdapterView<?> adapterView, View view,
                       int position, long id) {
