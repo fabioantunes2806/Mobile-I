@@ -19,7 +19,7 @@
         android:textColorHighlight="@color/colorAccent"
         android:textSize="32sp"
         android:textStyle="bold"
-        android:typeface="sans"/>
+        android:typeface="sans" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -36,5 +36,6 @@
         android:text="Cadastro"
         android:background="@color/colorPrimaryDark"/>
 
- </LinearLayout>
+
+</LinearLayout>
 

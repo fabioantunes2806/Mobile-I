@@ -21,16 +21,16 @@ public class BancoDados extends SQLiteOpenHelper {
     public static final String TABELA_MISSAO = "tb_pessoa";
 
     public static final String COLUNA_CODIGO = "codigo";
-    public static final String COLUNA_NOME = "nome";
-    public static final String COLUNA_PATENTE = "email";
-    public static final String COLUNA_LOCAL = "telefone";
-    public static final String COLUNA_ORGANIZACAO = "endereco";
+    public static final String COLUNA_NOME = "nomeAgente";
+    public static final String COLUNA_PATENTE = "patenteAgente";
+    public static final String COLUNA_LOCAL = "local";
+    public static final String COLUNA_ORGANIZACAO = "organizacao";
 
     @Override
     public void onCreate(SQLiteDatabase db) {
 
         String CRIAR_TABELA = "CREATE TABLE " + TABELA_MISSAO + "("
-                + COLUNA_CODIGO + " INTEGER PRIMARY KEY, " + COLUNA_NOME + " TEXT, " +
+                + COLUNA_CODIGO + " INTEGER PRIMARY KEY AUTOINCREMENT , " + COLUNA_NOME + " TEXT, " +
                 COLUNA_PATENTE + " TEXT, " + COLUNA_LOCAL + " TEXT, " + COLUNA_ORGANIZACAO + " TEXT) ";
 
         db.execSQL(CRIAR_TABELA);
@@ -58,6 +58,7 @@ public class BancoDados extends SQLiteOpenHelper {
     }
 
     void apagarMissao(infoMissao missao) {
+
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABELA_MISSAO, COLUNA_CODIGO + " =?", new String[]{
                 String.valueOf(missao.getCodigo())
@@ -69,8 +70,7 @@ public class BancoDados extends SQLiteOpenHelper {
     infoMissao selecionarMissao(int codigo) {
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABELA_MISSAO, new String[]{COLUNA_CODIGO, COLUNA_NOME,
-                        COLUNA_PATENTE, COLUNA_LOCAL, COLUNA_ORGANIZACAO},
+        Cursor cursor = db.query(TABELA_MISSAO, new String[]{COLUNA_CODIGO, COLUNA_NOME, COLUNA_PATENTE, COLUNA_LOCAL, COLUNA_ORGANIZACAO},
                 COLUNA_CODIGO + " = ?", new String[]{String.valueOf(codigo)},
                 null, null, null, null);
 
@@ -78,9 +78,8 @@ public class BancoDados extends SQLiteOpenHelper {
             cursor.moveToFirst();
         }
 
-        infoMissao missao = new infoMissao(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2), cursor.getString(3),
-                cursor.getString(4));
+        infoMissao missao = new infoMissao(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2),
+                    cursor.getString(3), cursor.getString(4));
 
         return missao;
     }
@@ -96,23 +95,25 @@ public class BancoDados extends SQLiteOpenHelper {
         valor.put(COLUNA_LOCAL, missao.getLocal());
         valor.put(COLUNA_ORGANIZACAO, missao.getOrganizacao());
 
-        db.update(TABELA_MISSAO, valor, COLUNA_CODIGO + " =?",
-                new String[]{String.valueOf(missao.getCodigo())});
+        db.update(TABELA_MISSAO, valor, COLUNA_CODIGO + " =?", new String[]{
+                String.valueOf(missao.getCodigo())});
 
-        //Fechar banco de dados
-        db.close();
     }
 
     public List<infoMissao> listaMissao() {
+
         List<infoMissao> pessoaLista = new ArrayList<infoMissao>();
+
         String query = "SELECT * FROM " + TABELA_MISSAO;
+
         SQLiteDatabase db = this.getWritableDatabase();
+
         Cursor cursor = db.rawQuery(query, null);
+
         if (cursor.moveToFirst()){
             do {
-                infoMissao missao = new infoMissao(Integer.parseInt(cursor.getString(0)),
-                        cursor.getString(1), cursor.getString(2), cursor.getString(3),
-                        cursor.getString(4));
+
+                infoMissao missao = new infoMissao();
 
                 missao.setCodigo(Integer.parseInt(cursor.getString(0)!=null?cursor.getString(0):"0"));
                 missao.setNomeAgente(cursor.getString(1));

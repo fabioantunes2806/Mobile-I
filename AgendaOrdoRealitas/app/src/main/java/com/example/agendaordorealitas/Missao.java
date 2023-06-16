@@ -3,7 +3,6 @@ package com.example.agendaordorealitas;
 import android.annotation.SuppressLint;
 import android.app.Service;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -11,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -85,6 +83,20 @@ public class Missao extends AppCompatActivity {
             }
         });
 
+        btLimpar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cCodigo.setText("");
+                cNome.setText("");
+                cPatente.setText("");
+                cLocal.setText("");
+                cOrganizacao.setText("");
+
+                cNome.requestFocus();
+            }
+        });
+
+        // Botão Salvar.
         btSalvar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -101,16 +113,13 @@ public class Missao extends AppCompatActivity {
 
                     db.addMissao(new infoMissao(nome, patente, local, organizacao));
 
-                    Toast.makeText(Missao.this, "Cadastro de Missão salvo com " +
-                            "sucesso", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Missao.this, "Cadastro de Missão salvo com " + "sucesso", Toast.LENGTH_SHORT).show();
                     listarMissoes();
                     limpaCampos();
                     escondeTeclado();
                 } else {
-                    db.atualizarMissao(new
-                            infoMissao(Integer.parseInt(codigo), nome, patente, local, organizacao));
-                    Toast.makeText(Missao.this, "Cadastro de Missão atualizado" +
-                            "com sucesso", Toast.LENGTH_SHORT).show();
+                    db.atualizarMissao(new infoMissao(Integer.parseInt(codigo), nome, patente, local, organizacao));
+                    Toast.makeText(Missao.this, "Cadastro de Missão atualizado" + "com sucesso", Toast.LENGTH_SHORT).show();
                     listarMissoes();
                     limpaCampos();
                     escondeTeclado();
@@ -118,20 +127,20 @@ public class Missao extends AppCompatActivity {
             }
         });
 
+        // Botão Excluir.
         btExcluir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String codigo = cCodigo.getText().toString();
                 if (codigo.isEmpty()) {
-                    Toast.makeText(Missao.this, "Nenhuma pessoa está" +
-                            "Selecionada", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Missao.this, "Nenhuma pessoa está" + "Selecionada", Toast.LENGTH_SHORT).show();
                 }else{
 
-                    infoMissao pessoa = new infoMissao();
-                    pessoa.setCodigo(Integer.parseInt(codigo));
-                    db.apagarMissao(pessoa);
-                    Toast.makeText(Missao.this, "Registro da pessoa" +
-                            "apagado com sucesso", Toast.LENGTH_SHORT).show();
+                    infoMissao missao = new infoMissao();
+                    missao.setCodigo(Integer.parseInt(codigo));
+                    db.apagarMissao(missao);
+                    Toast.makeText(Missao.this, "Registro da pessoa" + "apagado com sucesso", Toast.LENGTH_SHORT).show();
                     cCodigo.setText("");
                     listarMissoes();
                     limpaCampos();
@@ -166,9 +175,7 @@ public class Missao extends AppCompatActivity {
         viewMissao.setAdapter(adapter);
 
         for(infoMissao c : pessoas) {
-            //Log.d( "Lista", "\nID: " + c.getCodigo() + "Nome: " +
-            // c.getNome(  ));            //arrayList. add( c.getCodigo() +
-            // "-" + c.getCodigo());
+            //Log.d( "Lista", "\nID: " + c.getCodigo() + "Nome: " + c.getNome(  ));            //arrayList. add( c.getCodigo() + "-" + c.getCodigo());
             arrayList.add(c.getCodigo() + "-" + c.getNomeAgente());
             adapter.notifyDataSetChanged();
         }

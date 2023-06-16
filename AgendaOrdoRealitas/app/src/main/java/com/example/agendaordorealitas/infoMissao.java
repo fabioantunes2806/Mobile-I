@@ -1,11 +1,11 @@
 package com.example.agendaordorealitas;
 
 public class infoMissao {
-    private int codigo;
-    private String nomeAgente;
-    private String patenteAgente;
-    private String local;
-    private String organizacao;
+     int codigo;
+     String nomeAgente;
+     String patenteAgente;
+     String local;
+     String organizacao;
 
     public infoMissao(int codigo, String nomeAgente, String patenteAgente, String local, String organizacao) {
         this.codigo = codigo;
@@ -21,6 +21,11 @@ public class infoMissao {
         this.local = local;
         this.organizacao = organizacao;
     }
+
+    public infoMissao() {
+
+    }
+
 
     public int getCodigo() {
         return codigo;

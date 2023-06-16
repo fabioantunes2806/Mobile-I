@@ -13,7 +13,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -176,7 +175,7 @@ public class Cadastro extends AppCompatActivity {
      }
 
     public void limpaCampos() {
-        cCodigo.setText("");
+
         cNome.setText("");
         cTelefone.setText("");
         cEmail.setText("");

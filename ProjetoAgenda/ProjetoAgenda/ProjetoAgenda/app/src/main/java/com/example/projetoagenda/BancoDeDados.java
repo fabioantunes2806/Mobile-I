@@ -47,7 +47,8 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        ContentValues valor = new ContentValues();
+        ContentValues valor;
+        valor = new ContentValues();
 
         valor.put(COLUNA_NOME, pessoa.getNome());
         valor.put(COLUNA_TELEFONE, pessoa.getTelefone());
@@ -77,7 +78,8 @@ public class BancoDeDados extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABELA_AGENDA, new String[]{COLUNA_CODIGO, COLUNA_NOME, COLUNA_TELEFONE, COLUNA_EMAIL, COLUNA_ENDERECO},
-                COLUNA_CODIGO + " = ?", new String[]{String.valueOf(codigo)}, null, null, null, null);
+                COLUNA_CODIGO + " = ?", new String[]{String.valueOf(codigo)}, null, null,
+                null, null);
 
         if (cursor != null) {
             cursor.moveToFirst();
